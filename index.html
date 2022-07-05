@@ -22,7 +22,6 @@
 
     <script>
         const btns = document.querySelectorAll("button");
-        //const div = document.querySelector("div");
 
         let playerScore = 0;
         let computerScore = 0;
@@ -35,7 +34,7 @@
                 
                  if(event.target.id === "rock"){//Checks what type of button you pressed
                     document.querySelector("div").textContent = playRound("rock",computerPlay());//Puts result of playRound()into div. 
-                        game(document.querySelector("div").textContent);//Takes the result text and runs it as game function parameter 
+                        game(document.querySelector("div").textContent);//Takes the result of playRound() and runs it as game function parameter 
                 } else if(event.target.id === "paper"){
                     document.querySelector("div").textContent = playRound("paper",computerPlay());
                         game(document.querySelector("div").textContent);
@@ -59,7 +58,7 @@
 
         const computerSelection = computerPlay();
         
-        //This function executes one round of Rock Paper Scissors 
+        //This function plays one round of rock paper scissors 
         function playRound(playerSelection, computerSelection) {
             
  if (playerSelection === "rock" && computerSelection === "rock"){
@@ -94,15 +93,15 @@
 }
 
 
-//This function plays round of rock, paper or scissors(playRound)
+//This function takes the result of playRound() to execute 
 function game(result){  
 
     let winResult = result.slice(0,7);
     let loseResult = result.slice(0,8);
 
 
-        //If, else if line of code checks whether you have to add points to playerScore or computerScore 
-        if (winResult === "You win"){
+        //Conditional statement checks whether you have to add points to playerScore or computerScore 
+        if (winResult === "You win"){ 
             playerScore += 1;
         } else if (loseResult === "You lose"){
             computerScore += 1;
@@ -110,9 +109,13 @@ function game(result){
             
         }
 
+        //Displays current score on their IDs
         document.getElementById("playerDisplayScore").textContent = playerScore;
         document.getElementById("computerDisplayScore").textContent = computerScore;
 
+
+        //When player or computer reaches 5 points, you will see that displays whether you lose or win 
+        //Locks buttons after player or computer reaches 5 points
         if(playerScore === 5 ) {
                     document.querySelector("div").textContent = "GAME OVER! YOU WON";
                         document.getElementById("rock").disabled = true;
