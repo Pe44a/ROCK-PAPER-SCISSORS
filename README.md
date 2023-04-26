@@ -4,6 +4,8 @@ In this project you will play rock paper scissors against a bot until you or bot
 
 You choose rock paper scissors through three buttons, one for each selection.
 
+Check out here: https://pe44a.github.io/ROCK-PAPER-SCISSORS/
+
 Games ui:
 Header that calls you to play a game
 Player and computer score
